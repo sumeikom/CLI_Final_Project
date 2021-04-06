@@ -3,6 +3,7 @@
 
 require "bundler/setup"
 require "gemnames"
+require "jikan"
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -10,6 +11,14 @@ require "gemnames"
 # (If you use this, don't forget to add pry to your Gemfile!)
 # require "pry"
 # Pry.start
+
+require "pry"
+Pry.start
+
+def reload!
+    files = $LOADED_FEATURES.select { |feat| feat =~ /\/jikan\// }
+    files.each { |file| load file }
+end
 
 require "irb"
 IRB.start(__FILE__)
