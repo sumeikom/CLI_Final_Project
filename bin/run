@@ -3,3 +3,5 @@
 require_relative '../environment.rb'
 
 API.get_data
+
+CLI.new.intro
