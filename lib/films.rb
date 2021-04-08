@@ -1,11 +1,15 @@
 class Films
-    attr_accessor :title, :description, :release_date
+    attr_accessor :title, :description, :release_date, :original_title, :director
     @@all = []
 
-    def initialize(title, description,release_date)
-        @title = title
-        @description = description
-        @release_date = release_date
+    def initialize(film_hash)
+        #binding.pry
+        # @title = title
+        # @description = description
+        # @release_date = release_date
+        film_hash.each do |key, value| 
+            self.send("#{key}=", value) if self.respond_to?("#{key}=") #this make sures this only looks for things inside attr
+        end 
         save 
     end 
 
@@ -14,7 +18,7 @@ class Films
     end
 
     def self.all
-        @all
+        @@all 
     end
     
 end

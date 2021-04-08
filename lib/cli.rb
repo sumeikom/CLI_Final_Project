@@ -3,13 +3,14 @@ class CLI
     def intro
         puts "Welcome to the Studio Ghibli Database! What is your name?"
         input = user_input
+        greet(input)
     end
 
     def user_input
         gets.strip
     end
 
-    def greet(user_input)
+    def greet(name)
         puts "Hi #{name}! Welcome to the magical world of Studio Ghibli! Would you like to see a list of films? Enter yes to see list, exit to exit" 
         menu
     end
@@ -17,7 +18,7 @@ class CLI
     def menu 
         selection = user_input
         if selection == "yes"
-            print_films
+            print_films #extra code here like people, location, etc
         elsif selection == "exit"
             goodbye 
         else
@@ -36,8 +37,8 @@ end
 
 def print_films
         
-    films.all.each.with_index(1) do |films, index | 
-        puts "#{index}. #{films.name}"
+    Films.all.each.with_index(1) do |films, index | 
+        puts "#{index}. #{films.title}"
     end
     select_films
 end
@@ -45,7 +46,7 @@ end
 def select_films
     puts "please enter the name of the film you would like to learn more information about."
     selection = user_input
-    if films.find_by_selection(selection)
+    if Films.find_by_selection(selection)
         films = Films.find_by_selection(selection)
     else 
         films = selection

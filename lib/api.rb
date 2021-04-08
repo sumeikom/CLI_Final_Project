@@ -8,11 +8,11 @@ class API
         
        films_array = JSON.parse(response)
        films_array.each do |films|
-       binding.pry
+       # binding.pry
         Films.new(films)
         
        end
-    #    binding.pry
+        # binding.pry
     end
 end
 
