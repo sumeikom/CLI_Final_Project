@@ -8,15 +8,17 @@ class API
         
        films_array = JSON.parse(response)
        films_array.each do |films|
-       # binding.pry
         Films.new(films)
-        
        end
-        # binding.pry
     end
+
+    def self.get_data_people
+        response = RestClient.get('https://ghibliapi.herokuapp.com/people')  
+        people_array = JSON.parse(response)
+        people_array.each do |person|
+         Person.new(person)
+        end
+    end 
 end
 
 
-
-# uri = URI('https://ghibliapi.herokuapp.com/films')
-# Net::HTTP.get(uri) # => String

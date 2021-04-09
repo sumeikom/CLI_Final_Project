@@ -11,16 +11,18 @@ class CLI
     end
 
     def greet(name)
-        puts "Hi #{name}! Welcome to the magical world of Studio Ghibli! Would you like to see a list of films? Enter yes to see the list, exit to exit" 
+        puts "Hi #{name}! Welcome to the magical world of Studio Ghibli! Enter films to see a list of movies, enter character to see a list of characters, enter exit to exit" 
         menu
     end
 
     def menu 
         selection = user_input
-        if selection.downcase == "yes"
-            print_films #extra code here like people, location, etc
+        if selection.downcase == "films"
+            print_films 
         elsif selection.downcase == "exit"
             goodbye 
+        elsif selection.downcase == "character"
+            print_person
         else
             invalid 
         end
@@ -76,11 +78,58 @@ def films_details(films)
    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
    puts ""
     puts ""
-    puts "Enter yes to see the list again or enter exit to exit"
+    puts "Enter films to see a list of movies, enter character to see a list of characters, enter exit to exit"
 
     else 
         invalid 
     end
+end
 
+def print_person
+        
+    Person.all.each.with_index(1) do |person, index | 
+        puts "#{index}. #{person.name}"
+    end
+    select_person
+end
+
+def select_person
+    puts "Please enter the name of the character you would like to learn more information about."
+    selection = user_input
+    if Person.find_by_selection(selection)
+        person = Person.find_by_selection(selection)
+    else 
+        person = selection
+    end
+    person_details(person)
+    menu
+end
+
+def person_details(person) 
+    # binding.pry
+    if person == "exit"
+        goodbye 
+    elsif person.class == Person
+
+    puts ""
+    puts ""
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+   puts "Name: #{person.name}"
+   puts ""
+   puts "Gender: #{person.gender}"
+   puts ""
+   puts "Age: #{person.age}"
+   puts ""
+   puts "Eye color: #{person.eye_color}"
+   puts ""
+   puts "Hair color: #{person.hair_color}"
+   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+   puts ""
+    puts ""
+    puts "Enter films to see a list of movies, enter character to see a list of characters, enter exit to exit"
+
+    else 
+        invalid 
+    end
 end
 end

@@ -3,10 +3,6 @@ class Films
     @@all = []
 
     def initialize(film_hash)
-        #binding.pry
-        # @title = title
-        # @description = description
-        # @release_date = release_date
         film_hash.each do |key, value| 
             self.send("#{key}=", value) if self.respond_to?("#{key}=") #this make sures this only looks for things inside attr
         end 

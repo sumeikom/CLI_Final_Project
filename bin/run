@@ -2,6 +2,7 @@
 
 require_relative '../environment.rb'
 
-API.get_data
+API.get_data_people
 
 CLI.new.intro
+
