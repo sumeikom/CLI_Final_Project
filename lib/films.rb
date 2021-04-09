@@ -20,5 +20,10 @@ class Films
     def self.all
         @@all 
     end
-    
+
+    def self.find_by_selection(film_title)
+        self.all.detect do |film| 
+            film.title.downcase == film_title.downcase
+        end
+    end
 end
