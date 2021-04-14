@@ -18,8 +18,9 @@ class Person
     end
 
     def self.find_by_selection(people_attributes)
+        #binding.pry
         self.all.detect do |person| 
-            person.name.downcase == person.name.downcase
+            person.name.downcase == people_attributes.downcase
         end
     end
 end

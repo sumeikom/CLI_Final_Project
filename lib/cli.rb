@@ -1,8 +1,8 @@
 class CLI 
 
     def intro
-        API.get_data
-        API.get_data_people
+        # API.get_data
+        # API.get_data_people
         puts "Welcome to the Studio Ghibli Database! What is your name?"
         input = user_input
         greet(input)

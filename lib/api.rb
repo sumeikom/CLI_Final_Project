@@ -22,13 +22,4 @@ class API
     end 
  end
 
-# class API
 
-#     def self.get_data(input)
-#         response = RestClient.get("https://ghibliapi.herokuapp.com/#{input}")
-#         films_array = JSON.parse(response)
-#                films_array.each do |films|
-#                  Films.new(films)
-#          end
-#      end
-#  end
