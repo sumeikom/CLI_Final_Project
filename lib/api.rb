@@ -17,9 +17,18 @@ class API
         people_array = JSON.parse(response)
         people_array.each do |person|
          Person.new(person)
-        # binding.pry
+         # binding.pry
         end
     end 
  end
 
+# class API
 
+#     def self.get_data(input)
+#         response = RestClient.get("https://ghibliapi.herokuapp.com/#{input}")
+#         films_array = JSON.parse(response)
+#                films_array.each do |films|
+#                  Films.new(films)
+#          end
+#      end
+#  end

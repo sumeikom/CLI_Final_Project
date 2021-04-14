@@ -1,6 +1,8 @@
 class CLI 
 
     def intro
+        API.get_data
+        API.get_data_people
         puts "Welcome to the Studio Ghibli Database! What is your name?"
         input = user_input
         greet(input)
@@ -11,14 +13,31 @@ class CLI
     end
 
     def greet(name)
-        puts "Hi #{name}! Welcome to the magical world of Studio Ghibli! Would you like to see a list of films? Enter yes to see the list, exit to exit" 
+        
+        puts "Hi #{name}! Welcome to the magical world of Studio Ghibli! You can search by film or by person, exit to exit" 
         menu
     end
 
     def menu 
         selection = user_input
-        if selection.downcase == "yes"
+        if selection.downcase == "film"
             print_films #extra code here like people, location, etc
+        elsif selection.downcase == "person"
+            print_person
+        elsif selection.downcase == "exit"
+            goodbye 
+        else
+            invalid 
+        end
+end
+    
+
+    def menu 
+        selection = user_input
+        if selection.downcase == "film"
+            print_films #extra code here like people, location, etc
+        elsif selection.downcase == "person"
+            print_person
         elsif selection.downcase == "exit"
             goodbye 
         else
@@ -76,11 +95,63 @@ def films_details(films)
    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
    puts ""
     puts ""
-    puts "Enter yes to see the list again or enter exit to exit"
+    puts "Would you like to search again by film, person or enter exit to exit"
 
     else 
         invalid 
     end
+end
 
+#____________________________________________________________________________________________________________________________________________________
+
+
+def print_person
+        
+    Person.all.each.with_index(1) do |person, index| 
+        puts "#{index}. #{person.name}"
+    end
+    select_person
+end
+
+def select_person
+    puts "Please enter the name of the person you would like to learn more information about."
+    selection = user_input
+    if Person.find_by_selection(selection)
+        person = Person.find_by_selection(selection)
+    else 
+        person = selection
+    end
+    person_details(person)
+    # binding.pry
+    menu
+end
+
+
+def person_details(person) 
+     # binding.pry
+    if person == "exit"
+        goodbye 
+    elsif person.class == Person
+        
+    puts ""
+    puts ""
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+   puts "Name: #{person.name}"
+   puts ""
+   puts "Gender: #{person.gender}"
+   puts ""
+   puts "Age: #{person.age}"
+   puts ""
+   puts "Eye Color: #{person.eye_color}"
+   puts ""
+   puts "Hair Color: #{person.hair_color}"
+   puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+   puts ""
+    puts ""
+    puts "Would you like to search again by film, person or enter exit to exit"
+
+    else 
+        invalid 
+    end
 end
 end
