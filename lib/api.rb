@@ -5,10 +5,9 @@ class API
 
     def self.get_data 
        response = RestClient.get("https://ghibliapi.herokuapp.com/films")  
-       films_array = JSON.parse(response)
-       films_array.each do |films|
-        Films.new(films)
-        #
+       film_array = JSON.parse(response)
+       film_array.each do |film|
+        Film.new(film)
        end
     end
 

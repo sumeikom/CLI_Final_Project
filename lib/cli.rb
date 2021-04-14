@@ -1,8 +1,6 @@
 class CLI 
 
     def intro
-        # API.get_data
-        # API.get_data_people
         puts "Welcome to the Studio Ghibli Database! What is your name?"
         input = user_input
         greet(input)
@@ -21,7 +19,7 @@ class CLI
     def menu 
         selection = user_input
         if selection.downcase == "film"
-            print_films #extra code here like people, location, etc
+            print_film #extra code here like people, location, etc
         elsif selection.downcase == "person"
             print_person
         elsif selection.downcase == "exit"
@@ -35,7 +33,7 @@ end
     def menu 
         selection = user_input
         if selection.downcase == "film"
-            print_films #extra code here like people, location, etc
+            print_film #extra code here like people, location, etc
         elsif selection.downcase == "person"
             print_person
         elsif selection.downcase == "exit"
@@ -54,44 +52,44 @@ def invalid
     menu
 end
 
-def print_films
+def print_film
         
-    Films.all.each.with_index(1) do |films, index | 
-        puts "#{index}. #{films.title}"
+    Film.all.each.with_index(1) do |film, index | 
+        puts "#{index}. #{film.title}"
     end
-    select_films
+    select_film
 end
 
-def select_films
+def select_film
     puts "Please enter the name of the film you would like to learn more information about."
     selection = user_input
-    if Films.find_by_selection(selection)
-        films = Films.find_by_selection(selection)
+    if Film.find_by_selection(selection)
+        film = Film.find_by_selection(selection)
     else 
-        films = selection
+        film = selection
     end
-    films_details(films)
+    film_details(film)
     menu
 end
 
-def films_details(films) 
+def film_details(film) 
     # binding.pry
-    if films == "exit"
+    if film == "exit"
         goodbye 
-    elsif films.class == Films
+    elsif film.class == Film
         
     puts ""
     puts ""
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-   puts "Title: #{films.title}"
+   puts "Title: #{film.title}"
    puts ""
-   puts "Description: #{films.description}"
+   puts "Description: #{film.description}"
    puts ""
-   puts "Release date: #{films.release_date}"
+   puts "Release date: #{film.release_date}"
    puts ""
-   puts "Original title: #{films.original_title}"
+   puts "Original title: #{film.original_title}"
    puts ""
-   puts "Director: #{films.director}"
+   puts "Director: #{film.director}"
    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
    puts ""
     puts ""

@@ -1,10 +1,11 @@
-class Films
+class Film
     attr_accessor :title, :description, :release_date, :original_title, :director
     @@all = []
 
     def initialize(film_hash)
+        #binding.pry
         film_hash.each do |key, value| 
-            self.send("#{key}=", value) if self.respond_to?("#{key}=") #this make sures this only looks for things inside attr
+            self.send("#{key}=", value) if self.respond_to?("#{key}=") #if makes sure we only pull what we want
         end 
         save 
     end 
