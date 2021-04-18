@@ -19,7 +19,7 @@ class CLI
     def menu 
         selection = user_input
         if selection.downcase == "film"
-            print_film #extra code here like people, location, etc
+            print_film 
         elsif selection.downcase == "person"
             print_person
         elsif selection.downcase == "exit"
@@ -33,7 +33,7 @@ end
     def menu 
         selection = user_input
         if selection.downcase == "film"
-            print_film #extra code here like people, location, etc
+            print_film 
         elsif selection.downcase == "person"
             print_person
         elsif selection.downcase == "exit"
@@ -73,7 +73,6 @@ def select_film
 end
 
 def film_details(film) 
-    # binding.pry
     if film == "exit"
         goodbye 
     elsif film.class == Film
@@ -100,8 +99,6 @@ def film_details(film)
     end
 end
 
-#____________________________________________________________________________________________________________________________________________________
-
 
 def print_person
         
@@ -120,13 +117,11 @@ def select_person
         person = selection
     end
     person_details(person)
-    # binding.pry
     menu
 end
 
 
 def person_details(person) 
-     # binding.pry
     if person == "exit"
         goodbye 
     elsif person.class == Person

@@ -4,7 +4,7 @@ class Person
 
     def initialize(person_hash)
         person_hash.each do |key, value| 
-            self.send("#{key}=", value) if self.respond_to?("#{key}=") #this make sures this only looks for things inside attr
+            self.send("#{key}=", value) if self.respond_to?("#{key}=") 
         end 
         save 
     end 
@@ -18,7 +18,6 @@ class Person
     end
 
     def self.find_by_selection(people_attributes)
-        #binding.pry
         self.all.detect do |person| 
             person.name.downcase == people_attributes.downcase
         end
