@@ -1,6 +1,6 @@
 # Phase 1 Project
 
-Welcome to my phase 1 project! This CLI works as a database from all things Studio Ghibli related. You can search by film or by character. You can cycle through the lists and find out all kinds of things about your favorite movie or character. 
+Welcome to my phase 1 project! This CLI works as a database for all things Studio Ghibli related. You can search by film or by character. You can cycle through the lists and find out all kinds of things about your favorite movie or character. 
 
 # Gemnames
 
