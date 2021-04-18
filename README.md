@@ -6,7 +6,14 @@ Welcome to my phase 1 project! This CLI works as a database from all things Stud
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gemnames`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+You will need the following gems:
+
+gem "pry"
+gem "rest-client"
+gem "json"
+gem "require_all"
+gem "rake", "~> 13.0"
+gem "rubocop", "~> 1.7" 
 
 ## Installation
 
