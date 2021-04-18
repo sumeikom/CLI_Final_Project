@@ -33,7 +33,17 @@ Or install it yourself as:
 
 ## Usage
 
+To start type ruby bin/run
 
+After a welcome message you will be asked your name
+
+You will be asked if you would like to search by film, by person, or exit to exit
+
+If you type in film you will be shown a list of Studio Ghibli films. You can type in the name of the film you want to learn more about.
+
+If you type in person you will be shown a list of Studio Ghibli characters. You can type in the name of the person you want to learn more about.
+
+After the program will ask you you would like to see the list again or exit to exit. 
 
 ## Development
 
